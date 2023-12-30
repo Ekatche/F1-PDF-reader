@@ -5,7 +5,6 @@ python-doctr
 tensorflow==2.10
 spacy
 opencv-python
-tempfile
 regex
 pathlib
 glob2
