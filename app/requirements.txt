@@ -1,0 +1,14 @@
+streamlit
+numpy 
+pandas
+python-doctr
+tensorflow==2.10
+spacy
+opencv-python
+tempfile
+regex
+pathlib
+glob2
+stqdm
+pdf2image
+requests
