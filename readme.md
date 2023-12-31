@@ -1,7 +1,17 @@
-# App workflow 
+# PDF READER 
 
-https://f1pdfreader.streamlit.app/
+App available with this [Link](link:https://f1pdfreader.streamlit.app/)
 
+## Workflow
 <img src="./data_extraction_workflow.png" bacbackground-color="white" title="hover text">
 
-## additionnal informations
+### 1 - Image classification
+
+### 2 - Image conversion
+    
+### 3 - Information retrieval 
+    
+### 4 - Reorganize the Data Layout  
+
+
+## Additional information
