@@ -4,6 +4,7 @@ pandas
 opencv-python
 python-doctr
 tensorflow==2.10
+tf2onnx
 Pillow
 spacy
 regex
