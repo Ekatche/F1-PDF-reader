@@ -23,8 +23,8 @@ def load_model():
     """
     Load classification model and OCR model and Spacy Model
     """
-    classification_model = tf.keras.models.load_model("../../jupyter/F1_ocr_report/final_3class_classifier.h5")
-    nlp= spacy.load("../../jupyter/F1_ocr_report/model/model-best")
+    classification_model = tf.keras.models.load_model("../models/final_3class_classifier.h5")
+    nlp= spacy.load("../models/model-best")
     model = ocr_predictor(det_arch='linknet_resnet34',reco_arch='crnn_vgg16_bn',pretrained=True,
                           assume_straight_pages=True, 
                           preserve_aspect_ratio=True
