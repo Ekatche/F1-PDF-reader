@@ -1,0 +1,16 @@
+streamlit
+numpy 
+pandas
+opencv-python
+python-doctr
+tensorflow==2.10
+Pillow
+spacy
+regex
+pathlib
+glob2
+stqdm
+python-dateutil
+pdf2image
+requests
+
