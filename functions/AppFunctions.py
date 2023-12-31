@@ -171,7 +171,7 @@ def Vus_df(formatedLines):
 
 
 @st.cache_data(show_spinner="Formating Vus ...")
-def format_Vus(Vus):
+def format_Vus(Vus, mut_url):
     Vus.rename(columns={0: "hugo_sylb", 1: "c_chg", 2: "prt_chg", 3: "CHR"}, inplace=True)
     Vus['c_chg'] = Vus["c_chg"].apply(lambda a: a.split(".")[0].lower() + '.' + a.split(".")[1])
     Vus['prt_chg'] = Vus["prt_chg"].apply(lambda a: a.split(".")[0].lower() + '.' + a.split(".")[1])
