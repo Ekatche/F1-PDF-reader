@@ -4,6 +4,7 @@ import numpy as np
 import sys
 import os 
 from pathlib import Path
+
 st.set_page_config(page_title="PDF Reader")
 
 
@@ -20,9 +21,6 @@ from AppFunctions import load_model, load_data, Vus_df, format_Vus
 ######################
 mut_url = "https://mutalyzer.nl/api/"
 
-
-# page header 
-st.set_page_config(page_title="Foundation Medecine", layout="centered")
 
 st.markdown("<h1 style='text-align:center'> Fondation Medecine page </h1>",  unsafe_allow_html=True)
 st.write(
