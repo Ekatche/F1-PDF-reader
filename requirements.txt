@@ -1,10 +1,9 @@
 streamlit
-streamlit-extras
 numpy 
 pandas
 opencv-python
 python-doctr
-tensorflow==2.10
+tensorflow
 tf2onnx
 Pillow
 spacy
