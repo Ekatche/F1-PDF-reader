@@ -1,6 +1,6 @@
 # PDF READER
 
-App available with this [Link](https://f1-pdf-reader.streamlit.app/)
+App available with this [Link](https://fm-pdf-reader.streamlit.app/)
 
 ## Workflow
 
