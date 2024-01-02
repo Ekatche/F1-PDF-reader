@@ -5,13 +5,15 @@ import sys
 import os
 from pathlib import Path
 
-st.set_page_config(page_title="PDF Reader")
 
 script_dir = Path(os.path.dirname(os.path.abspath(__file__))).parent
 relative_path = os.path.join(script_dir, 'functions')
 sys.path.insert(1, str(relative_path))
 
-from AppFunctions import load_model, load_data, Vus_df, format_Vus
+from AppFunctions import load_model, load_data, Vus_df, format_Vus, add_logo
+
+logo_url = './CLBCRCL17.png'
+add_logo(logo_url)
 
 ######################
 ####              ####
