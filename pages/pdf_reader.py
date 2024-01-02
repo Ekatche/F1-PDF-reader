@@ -25,7 +25,7 @@ mut_url = "https://mutalyzer.nl/api/"
 st.markdown("<h1 style='text-align:center'> Application page  </h1>", unsafe_allow_html=True)
 st.write(
     """
-    This page is designed to extract VUS data from Foundation Medecine Report.
+    This page is designed to extract VUS data from Foundation Medicine Report.
 
     """
 
