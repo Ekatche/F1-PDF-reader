@@ -15,7 +15,7 @@ logo_url = './CLBCRCL17.png'
 
 add_logo(logo_url)
 st.markdown(
-    '<h1 style = "text-align:center"> AI based tool to extract information from Foundation Medecine PDF reports </h1>',
+    '<h1 style = "text-align:center"> AI based tool to extract information from Foundation Medicine PDF reports </h1>',
     unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(['Introduction', 'Process'])
