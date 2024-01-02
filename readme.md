@@ -40,7 +40,8 @@ This tool has been developed for internal use at the [Centre Léon Bérard](http
 within
 the framework of the European project [CGI clinics](https://www.cgiclinics.eu/).
 
-This tool is an experimental tool, and we have not conducted thorough evaluation steps to validate its performance.
+This tool is experimental, and we have not conducted thorough evaluation steps to validate its performance.
 Therefore, we are aware that it can make mistakes, and its stability may not be guaranteed.
 
 ## License
+[![License](https://img.shields.io/badge/License-GPL%203.0-green)](https://opensource.org/licenses/GPL-3.0)
