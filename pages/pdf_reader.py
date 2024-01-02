@@ -34,7 +34,7 @@ st.info(
     1. Upload the pdf report  
     2. Launch the preprocessing step 
     3. Then check if the data is correct
-    4. Finaly download the data
+    4. Reformat the data (specific for CGI clinics Users)
     """,
     icon="⚙️"
 )
@@ -98,3 +98,18 @@ if "vus_df" in st.session_state:
 
 else:
     st.info("""please load a file""", icon="ℹ️")
+
+st.divider()
+st.markdown(
+    "<h4 style='text-align: center; color: black; text-decoration: underline;'> Variants of Unknown Significance (VUS) Reformated </h4>",
+    unsafe_allow_html=True)
+if st.session_state.button_2:
+    try:
+        print('formatting Vus')
+        final_vus_df = format_Vus(Vus_df, mut_url)
+        final_df = st.data_editor(final_vus_df, num_rows="dynamic", use_container_width=True)
+    except Exception as e:
+        print(f'error formatting vus : {e}')
+        st.session_state.button_2 = False
+else:
+    st.info("""Click button 'reformat the Vus' or check your data """, icon="ℹ️")

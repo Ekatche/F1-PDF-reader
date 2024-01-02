@@ -45,7 +45,7 @@ def replace(match):
 
 
 @st.cache_data(show_spinner="Extracting data from pdf ...")
-def load_data(uploaded_file, classification_model, model, nlp):
+def load_data(uploaded_file, _classification_model, _model, _nlp):
     path = tempfile.mkdtemp()
     images_from_path = convert_from_bytes(uploaded_file, output_folder=path, fmt="png")
 
@@ -71,7 +71,7 @@ def load_data(uploaded_file, classification_model, model, nlp):
     for image in stqdm(glob.glob(path + "/" + "*")):
         img = cv2.imread(image)
         resized_image = cv2.resize(img, target_size)
-        predictions = classification_model.predict(np.expand_dims(resized_image, axis=0))
+        predictions = _classification_model.predict(np.expand_dims(resized_image, axis=0))
         pred = tf.math.argmax(predictions[0])
 
         if pred == 2:
@@ -79,13 +79,13 @@ def load_data(uploaded_file, classification_model, model, nlp):
             new_width = image_np.shape[1] * 2
             new_height = image_np.shape[0] * 2
             resized_image = cv2.resize(image_np, (new_width, new_height), interpolation=cv2.INTER_CUBIC)
-            result = model([resized_image])
+            result = _model([resized_image])
             text = result.render()
             if "APPENDIX Variants of Unknown" in text:
                 lines = text.split('\n')
                 for i, line in enumerate(lines):
                     line = line.replace('/', '7')
-                    doc = nlp(line)
+                    doc = _nlp(line)
                     if len(doc.ents) > 1:
                         if doc.ents[0].label_ == 'REFDEQ':
                             gene = doc.ents[0].text
@@ -117,6 +117,11 @@ def load_data(uploaded_file, classification_model, model, nlp):
                             formated_pchange = re.sub(r",", "", pchange)
                             temp_list.append(formated_pchange)
 
+                        if doc.ents[1].label_ == 'CHR':
+                            mutation = doc.ents[1].text
+                            cchange = mutation.replace(' ', '_')
+                            temp_list.append(cchange)
+
                     if len(doc.ents) == 1:
                         if doc.ents[0].label_ == 'CHR':
                             chrom = doc.ents[0].text
@@ -142,7 +147,7 @@ def load_data(uploaded_file, classification_model, model, nlp):
                             temp_list.append(refseq)
 
                         if doc.ents[0].label_ == 'CCHANGE':
-                            mutation = doc.ents[1].text
+                            mutation = doc.ents[0].text
                             cchange = mutation.replace(' ', '_')
                             temp_list.append(cchange)
                     if len(doc.ents) < 1:
@@ -165,29 +170,28 @@ def load_data(uploaded_file, classification_model, model, nlp):
 
 @st.cache_data()
 def Vus_df(formatedLines):
-    Vus = pd.DataFrame(formatedLines, columns=["genes_names", "mut", 'pchange', "chr_change"])
+    Vus = pd.DataFrame(formatedLines, columns=["RefSeq", "Mutation_loc", 'Protein_mut', "Chromosome_pos"])
     vus_copy = Vus.copy()
     return vus_copy
 
 
 @st.cache_data(show_spinner="Formating Vus ...")
 def format_Vus(Vus, mut_url):
-    Vus.rename(columns={0: "hugo_sylb", 1: "c_chg", 2: "prt_chg", 3: "CHR"}, inplace=True)
-    Vus['c_chg'] = Vus["c_chg"].apply(lambda a: a.split(".")[0].lower() + '.' + a.split(".")[1])
-    Vus['prt_chg'] = Vus["prt_chg"].apply(lambda a: a.split(".")[0].lower() + '.' + a.split(".")[1])
+    Vus['Mutation_loc'] = Vus["Mutation_loc"].apply(lambda a: a.split(".")[0].lower() + '.' + a.split(".")[1])
+    Vus['Protein_mut'] = Vus["Protein_mut"].apply(lambda a: a.split(".")[0].lower() + '.' + a.split(".")[1])
     try:
-        esemble = True
-        Vus['ensemblID'] = Vus.hugo_sylb.apply(
+        esembl = True
+        Vus['ensemblID'] = Vus.RefSeq.apply(
             lambda x: requests.get(f'{mut_url}/related_references/{x.strip()}').json()['ensembl'][1]['id'])
     except Exception as e:
-        esemble = False
+        esembl = False
         print(e)
 
-    if esemble:
-        Vus['protein'] = Vus.apply(lambda x: x['ensemblID'] + ":" + x['c_chg'].strip(), axis=1)
+    if esembl:
+        Vus['Transcript_variant'] = Vus.apply(lambda x: x['ensemblID'] + ":" + x['Mutation_loc'].strip(), axis=1)
     else:
         print(f'problem during emsemblId loading')
 
-    Vus_copy = Vus[['hugo_sylb', 'protein']].copy()
+    Vus_copy = Vus[['RefSeq', 'Transcript_variant']].copy()
     print("done formating vus")
     return Vus_copy
