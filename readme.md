@@ -36,12 +36,29 @@ using [CGI clinics](https://www.cgiclinics.eu/).
 
 ## Additional information
 
-This tool has been developed for internal use at the [Centre Léon Bérard](https://www.centreleonberard.fr/) (CLB) to process Foundation Medicine reports
+This tool has been developed for internal use at the [Centre Léon Bérard](https://www.centreleonberard.fr/) (CLB) to
+process Foundation Medicine reports
 within
 the framework of the European project [CGI clinics](https://www.cgiclinics.eu/).
 
 This tool is experimental, and we have not conducted thorough evaluation steps to validate its performance.
 Therefore, we are aware that it can make mistakes, and its stability may not be guaranteed.
 
+## Important Notice for Users
+
+**Caution: Avoid inputting sensitive or personally identifiable information.**
+
+This application is intended for extracting data from Foundation Medicine PDF reports. While every effort has been made
+to handle data responsibly, it is crucial to exercise caution and refrain from entering sensitive or confidential
+information.
+
+The application is designed to process Foundation Medicine reports, and it performs basic security encryption measures. 
+Therefore, it is strongly advised to use this tool responsibly and be mindful of the information you provide.
+
+If you have concerns about data security or privacy, please reach out to the developers or administrators for further
+guidance.
+
+
 ## License
+
 [![License](https://img.shields.io/badge/License-GPL%203.0-green)](https://opensource.org/licenses/GPL-3.0)
