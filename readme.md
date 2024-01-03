@@ -44,11 +44,12 @@ the framework of the European project [CGI clinics](https://www.cgiclinics.eu/).
 This tool is experimental, and we have not conducted thorough evaluation steps to validate its performance.
 Therefore, we are aware that it can make mistakes, and its stability may not be guaranteed.
 
-## Important Notice for Users
+## Important Notice for Users 
 
 **Caution: Avoid inputting sensitive or personally identifiable information.**
 
-This application is intended for extracting data from Foundation Medicine PDF reports. While every effort has been made
+When using the application available [Here](https://fm-pdf-reader.streamlit.app/) be aware that
+this application is intended for extracting data from Foundation Medicine PDF reports. While every effort has been made
 to handle data responsibly, it is crucial to exercise caution and refrain from entering sensitive or confidential
 information.
 
