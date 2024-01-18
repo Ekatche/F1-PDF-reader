@@ -30,18 +30,35 @@ relative_path_spacy = os.path.join(script_dir, 'models', 'model-best')
 
 
 @st.cache_resource()
-def load_model():
+def load_ocr_model():
     """
     Load classification model and OCR model and Spacy Model
-    """
-    classification_model = tf.keras.models.load_model(relative_path_class)
-    nlp = spacy.load(relative_path_spacy)
+      """
+
     model = ocr_predictor(det_arch='linknet_resnet34', reco_arch='crnn_vgg16_bn', pretrained=True,
                           assume_straight_pages=True,
                           preserve_aspect_ratio=True
                           )
+    return model
 
-    return classification_model, model, nlp
+@st.cache_resource()
+def load_classification_model():
+    """
+    Load classification model and OCR model and Spacy Model
+    """
+    classification_model = tf.keras.models.load_model(relative_path_class)
+
+
+    return classification_model
+
+@st.cache_resource()
+def load_spacy_model():
+    """
+    Load classification model and OCR model and Spacy Model
+    """
+    nlp = spacy.load(relative_path_spacy)
+
+    return nlp
 
 
 def replace(match):

@@ -4,18 +4,18 @@ pandas
 opencv-python-headless==4.5.5.64
 python-doctr[tf]
 rapidfuzz==2.15.1
-tensorflow ==2.12.0
+tensorflow==2.12.0
 Pillow
 spacy
-spacy-transformers==1.1.5
+spacy-transformers
 https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.3/en_core_web_trf-3.7.3.tar.gz
 regex
 pathlib
 glob2==0.7
 stqdm
-python-dateutil==2.8.2
-pdf2image==1.16.0
-requests==2.28.1
+python-dateutil
+pdf2image
+requests
 tf2onnx
 tensorflow-addons
 flatbuffers

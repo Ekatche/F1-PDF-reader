@@ -10,7 +10,7 @@ script_dir = Path(os.path.dirname(os.path.abspath(__file__))).parent
 relative_path = os.path.join(script_dir, 'functions')
 sys.path.insert(1, str(relative_path))
 
-from AppFunctions import load_model, load_data, Vus_df, format_Vus, add_logo
+from AppFunctions import load_ocr_model, load_data, Vus_df, format_Vus, add_logo, load_classification_model, load_spacy_model
 
 logo_url = './CLBCRCL17.png'
 add_logo(logo_url)
@@ -42,7 +42,9 @@ st.info(
 )
 st.divider()
 
-classification_model, model, nlp = load_model()
+classification_model =  load_classification_model()
+model = load_ocr_model
+nlp = load_spacy_model
 
 if 'button_1' not in st.session_state:
     st.session_state.button_1 = False
