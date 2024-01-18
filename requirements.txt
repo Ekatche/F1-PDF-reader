@@ -6,8 +6,6 @@ python-doctr[tf]
 rapidfuzz==2.15.1
 tensorflow==2.12.0
 Pillow
-spacy
-spacy-transformers
 https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.3/en_core_web_trf-3.7.3.tar.gz
 regex
 pathlib
@@ -19,3 +17,8 @@ requests
 tf2onnx
 tensorflow-addons
 flatbuffers
+spacy>=3.7.2,<3.8.0
+spacy-transformers
+torch
+torchvision
+torchaudio

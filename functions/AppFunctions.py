@@ -6,8 +6,7 @@ import numpy as np
 import tensorflow as tf
 import tempfile
 import re
-import math
-from pathlib import Path
+
 import glob
 import spacy
 import warnings
@@ -51,13 +50,14 @@ def load_classification_model():
 
     return classification_model
 
-@st.cache_resource()
+
 def load_spacy_model():
     """
     Load classification model and OCR model and Spacy Model
     """
+    print(relative_path_spacy)
     nlp = spacy.load(relative_path_spacy)
-
+    print(nlp)
     return nlp
 
 
