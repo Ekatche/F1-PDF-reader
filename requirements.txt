@@ -10,7 +10,7 @@ spacy
 spacy-transformers==1.1.5
 https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.3/en_core_web_trf-3.7.3.tar.gz
 regex
-pathlib==1.0.1
+pathlib
 glob2==0.7
 stqdm
 python-dateutil==2.8.2
