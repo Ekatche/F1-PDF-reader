@@ -103,6 +103,7 @@ def load_data(uploaded_file, _classification_model, _model, _nlp):
             result = _model([resized_image])
             text = result.render()
             if "APPENDIX Variants of Unknown" in text:
+                print('found vus page')
                 lines = text.split('\n')
                 for i, line in enumerate(lines):
                     line = line.replace('/', '7')
