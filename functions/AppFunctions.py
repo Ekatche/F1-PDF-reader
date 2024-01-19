@@ -102,7 +102,9 @@ def load_data(uploaded_file, _classification_model, _model, _nlp):
             resized_image = cv2.resize(image_np, (new_width, new_height), interpolation=cv2.INTER_CUBIC)
             result = _model([resized_image])
             text = result.render()
+            print(text[0:10])
             if "APPENDIX Variants of Unknown" in text:
+                
                 print('found vus page')
                 lines = text.split('\n')
                 for i, line in enumerate(lines):
