@@ -94,7 +94,8 @@ def load_data(uploaded_file, _classification_model, _model, _nlp):
         pred = tf.math.argmax(predictions[0])
 
         if pred == 2:
-            print(f"{i+=1}")
+            i+=1
+            print(f"{i}")
             image_np = np.array(img)
             new_width = image_np.shape[1] * 2
             new_height = image_np.shape[0] * 2
