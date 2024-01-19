@@ -2,7 +2,7 @@ streamlit==1.30.0
 numpy
 pandas
 opencv-python-headless==4.5.5.64
-python-doctr[tf]
+python-doctr
 rapidfuzz==2.15.1
 tensorflow==2.12.0
 Pillow
