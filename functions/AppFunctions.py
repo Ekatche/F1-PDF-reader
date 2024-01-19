@@ -50,14 +50,12 @@ def load_classification_model():
 
     return classification_model
 
-
+@st.cache_resource()
 def load_spacy_model():
     """
     Load classification model and OCR model and Spacy Model
     """
-    print(relative_path_spacy)
     nlp = spacy.load(relative_path_spacy)
-    print(nlp)
     return nlp
 
 
