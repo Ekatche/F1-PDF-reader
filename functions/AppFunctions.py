@@ -86,7 +86,7 @@ def load_data(uploaded_file, _classification_model, _model, _nlp):
     formatted_lines = []
     temp_list = []
     target_size = (224, 224)
-
+    i=0
     for image in stqdm(glob.glob(path + "/" + "*")):
         img = cv2.imread(image)
         resized_image = cv2.resize(img, target_size)
@@ -94,6 +94,7 @@ def load_data(uploaded_file, _classification_model, _model, _nlp):
         pred = tf.math.argmax(predictions[0])
 
         if pred == 2:
+            print(f"{i+=1}")
             image_np = np.array(img)
             new_width = image_np.shape[1] * 2
             new_height = image_np.shape[0] * 2
