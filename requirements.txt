@@ -4,7 +4,7 @@ pandas
 opencv-python-headless==4.5.5.64
 python-doctr
 rapidfuzz==2.15.1
-tensorflow==2.12.0
+tensorflow==2.11.0
 Pillow
 https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.3/en_core_web_trf-3.7.3.tar.gz
 regex
