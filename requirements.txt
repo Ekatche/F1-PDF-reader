@@ -1,11 +1,12 @@
 streamlit==1.30.0
 numpy
 pandas
-opencv-python-headless==4.5.5.64
-python-doctr
+opencv-python==4.6.0
+opencv-python-headless==4.8.1.78
+-e git+https://github.com/mindee/doctr.git
 rapidfuzz==2.15.1
-tensorflow==2.11.0
-Pillow
+tensorflow==2.12.0
+Pillow==10.0.1
 https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.7.3/en_core_web_trf-3.7.3.tar.gz
 regex
 pathlib
@@ -14,11 +15,11 @@ stqdm
 python-dateutil
 pdf2image
 requests
-tf2onnx
-tensorflow-addons
-flatbuffers
+tf2onnx==1.14.0
+tensorflow-addons==0.20.0
+flatbuffers==23.5.26
 spacy>=3.7.2,<3.8.0
-spacy-transformers
+spacy-transformers==1.3.3
 torch
 torchvision
 torchaudio
