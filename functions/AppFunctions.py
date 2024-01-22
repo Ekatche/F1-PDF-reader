@@ -205,7 +205,7 @@ def format_Vus(Vus, mut_url):
     try:
         print("getting esembl ID")
         esembl = True
-        Vus['ensemblID'] = Vus.RefSeq.apply(lambda x: requests.get(f'{mut_url}/related_references/{x.strip()}').json()['ensembl'][1]['id'])
+        Vus['ensemblID'] = Vus.RefSeq.apply(lambda x: requests.get(f'{mut_url}/related_references/{x.split(".")[0].strip()}').json()['ensembl'][1]['id'])
     except Exception as e:
         esembl = False
         print(e)
