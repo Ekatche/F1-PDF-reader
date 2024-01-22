@@ -203,9 +203,9 @@ def format_Vus(Vus, mut_url):
     Vus['Mutation_loc'] = Vus["Mutation_loc"].apply(lambda a: a.split(".")[0].lower() + '.' + a.split(".")[1])
     Vus['Protein_mut'] = Vus["Protein_mut"].apply(lambda a: a.split(".")[0].lower() + '.' + a.split(".")[1])
     try:
+        print("getting esembl ID")
         esembl = True
-        Vus['ensemblID'] = Vus.RefSeq.apply(
-            lambda x: requests.get(f'{mut_url}/related_references/{x.strip()}').json()['ensembl'][1]['id'])
+        Vus['ensemblID'] = Vus.RefSeq.apply(lambda x: requests.get(f'{mut_url}/related_references/{x.strip()}').json()['ensembl'][1]['id'])
     except Exception as e:
         esembl = False
         print(e)
